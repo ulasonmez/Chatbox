@@ -1,5 +1,6 @@
-import 'package:chatbox/pages/onboarding.dart';
-import 'package:chatbox/pages/splash.dart';
+
+import 'package:chatbox/pages/log_in.dart';
+import 'package:chatbox/pages/sign_in.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -18,7 +19,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: OnboardingPage(),
+      home: SignInPage(),
     );
   }
 }
