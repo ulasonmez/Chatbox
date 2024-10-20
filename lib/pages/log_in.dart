@@ -1,3 +1,4 @@
+import 'package:chatbox/pages/onboarding.dart';
 import 'package:flutter/material.dart';
 
 class LogInPage extends StatelessWidget {
@@ -7,7 +8,12 @@ class LogInPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back)),
+        leading: IconButton(onPressed: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => OnboardingPage()),
+            );
+        }, icon: Icon(Icons.arrow_back)),
       ),
       body: Column(
         children: [

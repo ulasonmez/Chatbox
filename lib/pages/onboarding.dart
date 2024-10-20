@@ -1,3 +1,5 @@
+import 'package:chatbox/pages/log_in.dart';
+import 'package:chatbox/pages/sign_in.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingPage extends StatelessWidget {
@@ -192,6 +194,10 @@ class OnboardingPage extends StatelessWidget {
             InkWell(
               onTap: () {
                 print("Clicked Sign up with e-mail");
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SignInPage()),
+                );
               },
               child: Container(
                 width: 300,
@@ -222,6 +228,10 @@ class OnboardingPage extends StatelessWidget {
                 InkWell(
                   onTap: () {
                     print("Log in clicked");
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => LogInPage()),
+                    );
                   },
                   child: Text(
                     "Log in",
