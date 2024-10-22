@@ -1,8 +1,24 @@
 import 'package:chatbox/pages/onboarding.dart';
 import 'package:flutter/material.dart';
 
-class SignInPage extends StatelessWidget {
+class SignInPage extends StatefulWidget {
   const SignInPage({super.key});
+
+  @override
+  State<SignInPage> createState() => _SignInPageState();
+}
+
+class _SignInPageState extends State<SignInPage> {
+  final TextEditingController _emailController = TextEditingController();
+  bool _isValidEmail = true;
+
+  // Function to validate the email
+  bool isValidEmail(String email) {
+    final RegExp emailRegex = RegExp(
+      r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
+    );
+    return emailRegex.hasMatch(email);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -57,16 +73,39 @@ class SignInPage extends StatelessWidget {
           Container(
               padding: EdgeInsets.only(left: 30, right: 30),
               child: TextField(
+                controller: _emailController,
+                onChanged: (value) {
+                  setState(() {
+                    _isValidEmail = isValidEmail(value);
+                  });
+                },
                 decoration: InputDecoration(
-                    labelText: "Your email",
-                    labelStyle: TextStyle(color: Color(0xFF24786D))),
+                  labelText: "Your email",
+                  labelStyle: TextStyle(
+                    color: _isValidEmail ? Color(0xFF24786D) : Colors.red,
+                  ),
+                  errorText: _isValidEmail ? null : null,
+                ),
               )),
+          if (!_isValidEmail)
+            Align(
+              alignment: Alignment.centerRight,
+              child: Padding(
+                padding: const EdgeInsets.only(right: 30.0),
+                child: Text(
+                  'Invalid email address',
+                  style: TextStyle(color: Colors.red),
+                ),
+              ),
+            ),
           SizedBox(
             height: 20,
           ),
           Container(
               padding: EdgeInsets.only(left: 30, right: 30),
               child: TextField(
+                obscureText: true,
+                obscuringCharacter: "*",
                 decoration: InputDecoration(
                     labelText: "Password",
                     labelStyle: TextStyle(color: Color(0xFF24786D))),
@@ -77,6 +116,8 @@ class SignInPage extends StatelessWidget {
           Container(
               padding: EdgeInsets.only(left: 30, right: 30),
               child: TextField(
+                obscureText: true,
+                obscuringCharacter: "*",
                 decoration: InputDecoration(
                     labelText: "Confirm Password",
                     labelStyle: TextStyle(color: Color(0xFF24786D))),
