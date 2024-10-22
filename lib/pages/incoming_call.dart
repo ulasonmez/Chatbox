@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:chatbox/pages/home.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -98,10 +99,7 @@ class _IncomingCallPageState extends State<IncomingCallPage> {
                         child: Padding(
                           padding: const EdgeInsets.only(bottom: 60.0),
                           child: Wrap(
-                            children: const [
-                              // Buttons for after answering (optional)
-                              // Add your buttons here
-                            ],
+                            children: const [],
                           ),
                         ),
                       )
@@ -185,12 +183,21 @@ class _IncomingCallPageState extends State<IncomingCallPage> {
 
   void _onDragEnd(DragEndDetails details) {
     var threshold = (_initialWidth / 6) + (_padding * 2);
+
     if (_width >= _initialWidth) return;
+
     if (_width == threshold) {
       _hasAnswered = true;
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) =>
+              const HomePage(),
+        ),
+      );
     } else {
       _width = _initialWidth;
     }
+
     setState(() {});
   }
 }

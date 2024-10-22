@@ -1,3 +1,4 @@
+import 'package:chatbox/pages/incoming_call.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
@@ -127,81 +128,91 @@ class HomePage extends StatelessWidget {
                         )
                       ],
                     ),
-                    child: Container(
-                      margin: EdgeInsets.only(left: 25, bottom: 20, right: 25),
-                      height: 70,
-                      child: Row(
-                        children: [
-                          Container(
-                            width: 70,
-                            height: 70,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              border:
-                                  Border.all(color: Colors.black, width: 1.0),
-                              shape: BoxShape.circle,
-                              image: DecorationImage(
-                                image: AssetImage(
-                                    'assets/home_screen/profile_picture.png'),
-                                fit: BoxFit.cover,
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => IncomingCallPage()),
+                        );
+                      },
+                      child: Container(
+                        margin:
+                            EdgeInsets.only(left: 25, bottom: 20, right: 25),
+                        height: 70,
+                        child: Row(
+                          children: [
+                            Container(
+                              width: 70,
+                              height: 70,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                border:
+                                    Border.all(color: Colors.black, width: 1.0),
+                                shape: BoxShape.circle,
+                                image: DecorationImage(
+                                  image: AssetImage(
+                                      'assets/home_screen/profile_picture.png'),
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             ),
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Alex Linderson",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black,
-                                    fontSize: 24),
-                              ),
-                              Text(
-                                "How are you today?",
-                                style: TextStyle(
-                                    color: Colors.grey,
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.bold),
-                              )
-                            ],
-                          ),
-                          Spacer(
-                            flex: 9,
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: [
-                              Text("2 min ago"),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Container(
-                                width: 25,
-                                height: 25,
-                                decoration: BoxDecoration(
-                                  color: Colors.red,
-                                  shape: BoxShape.circle,
-                                ),
-                                child: Center(
-                                  child: Text(
-                                    '4',
-                                    style: TextStyle(
-                                      color: Colors.white,
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Alex Linderson",
+                                  style: TextStyle(
                                       fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                      fontSize: 24),
+                                ),
+                                Text(
+                                  "How are you today?",
+                                  style: TextStyle(
+                                      color: Colors.grey,
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold),
+                                )
+                              ],
+                            ),
+                            Spacer(
+                              flex: 9,
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                Text("2 min ago"),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Container(
+                                  width: 25,
+                                  height: 25,
+                                  decoration: BoxDecoration(
+                                    color: Colors.red,
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      '4',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                     ),
                                   ),
                                 ),
-                              ),
-                            ],
-                          ),
-                          Spacer(
-                            flex: 1,
-                          )
-                        ],
+                              ],
+                            ),
+                            Spacer(
+                              flex: 1,
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   );

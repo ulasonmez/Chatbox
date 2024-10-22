@@ -1,4 +1,4 @@
-import 'package:chatbox/pages/incoming_call.dart';
+import 'package:chatbox/pages/splash.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +17,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: IncomingCallPage(),
+      home: SplashScreen(),
     );
   }
 }
